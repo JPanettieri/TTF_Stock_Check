@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_home"
+    android:label="Stock Manager"
+    app:startDestination="@id/stockFragment">
+
+    <fragment
+        android:id="@+id/stockFragment"
+        android:name="au.com.machtech.ttf_stock_check.StockFragment"
+        android:label="Stock Levels"
+        tools:layout="@layout/fragment_stock" >
+        <argument
+            android:name="updateClick"
+            app:argType="string[]" />
+        <action
+            android:id="@+id/action_stockFragment_to_manageStockFragment"
+            app:destination="@id/manageStockFragment" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/manageStockFragment"
+        android:name="au.com.machtech.ttf_stock_check.ManageStockFragment"
+        android:label="Stock Manager"
+        tools:layout="@layout/fragment_manage_stock" >
+        <action
+            android:id="@+id/action_manageStockFragment_to_stockFragment"
+            app:destination="@id/stockFragment" />
+        <argument
+            android:name="updateClick"
+            app:argType="string[]" />
+
+
+    </fragment>
+    <action
+        android:id="@+id/action_global_manageStockFragment"
+        app:destination="@id/manageStockFragment"
+        app:popUpTo="@id/stockFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="au.com.machtech.ttf_stock_check.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_usersFragment"
+            app:destination="@id/usersFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_manageUsersFragment"
+            app:destination="@id/manageUsersFragment" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_settingsFragment2"
+        app:destination="@id/settingsFragment" />
+    <fragment
+        android:id="@+id/usersFragment"
+        android:name="au.com.machtech.ttf_stock_check.UsersFragment"
+        android:label="Users"
+        tools:layout="@layout/fragment_users">
+        <action
+            android:id="@+id/action_usersFragment_to_manageUsersFragment"
+            app:destination="@id/manageUsersFragment" />
+        <argument
+            android:name="editUser"
+            app:argType="string[]" />
+    </fragment>
+    <fragment
+        android:id="@+id/manageUsersFragment"
+        android:name="au.com.machtech.ttf_stock_check.ManageUsersFragment"
+        android:label="Manage Users"
+        tools:layout="@layout/fragment_manage_users">
+        <action
+            android:id="@+id/action_manageUsersFragment_to_usersFragment"
+            app:destination="@id/usersFragment" />
+        <argument
+            android:name="editUser"
+            app:argType="string[]" />
+    </fragment>
+</navigation>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item
+            android:id="@+id/stockFragment"
+            android:icon="@drawable/quantity"
+            android:title="@string/bottom_nav_left" />
+        <item
+            android:id="@+id/manageStockFragment"
+            android:icon="@drawable/manage"
+            android:title="@string/bottom_nav_right" />
+        <item
+                android:id="@+id/settingsFragment"
+                android:icon="@drawable/settings"
+                android:title="@string/settingsNav"/>
+</menu>

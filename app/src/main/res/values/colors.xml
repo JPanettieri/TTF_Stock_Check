@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="earthgreen">#677B58</color>
+    <color name="earthgreen2">#677B58</color>
+    <color name="ttflight">#EEF3EF</color>
+    <color name="ttflight2">#EEF3EF</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#EEF3EF</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
