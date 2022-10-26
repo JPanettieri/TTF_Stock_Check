@@ -1,21 +1,20 @@
 package au.com.machtech.ttf_stock_check
-
+// (c) Copyright Skillage I.T.
+// (c) This file is Skillage I.T. software and is made available under license.
+// (c) This software is developed by: Joshua Panettieri
+// (c) Date: 15th October 2022 Time: 08:00
+// (c) File Name: TTF_Stock_Check Version: 1-0
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.recyclerview.widget.RecyclerView
-import au.com.machtech.ttf_stock_check.database.Users
-import au.com.machtech.ttf_stock_check.database.UsersDbHelper
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationBarView
 
+@Suppress("DEPRECATION")
 class HomeFragment : Fragment() {
 
     override fun onCreateView(
@@ -28,11 +27,6 @@ class HomeFragment : Fragment() {
         val navHostFragment = childFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
 
         val bottomNav = view.findViewById<BottomNavigationView>(R.id.bottom_nav)
-//            bottomNav.setupWithNavController(navController = navHostFragment.navController)
-/*        val updateClick = arrayOf("","","").toString()
-        val bundleString = Bundle()
-            bottomNav.setOnItemSelectedListener{ navHostFragment.navController.navigate(a,bundleString )
-                return@setOnItemSelectedListener true }*/
 
         val updateClick = Bundle()
         updateClick.putStringArray("updateClick", arrayOf("", "",""))

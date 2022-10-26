@@ -16,7 +16,8 @@
             app:argType="string[]" />
         <action
             android:id="@+id/action_stockFragment_to_manageStockFragment"
-            app:destination="@id/manageStockFragment" />
+            app:destination="@id/manageStockFragment"
+            app:popUpTo="@id/stockFragment" />
 
 
     </fragment>
@@ -27,7 +28,9 @@
         tools:layout="@layout/fragment_manage_stock" >
         <action
             android:id="@+id/action_manageStockFragment_to_stockFragment"
-            app:destination="@id/stockFragment" />
+            app:destination="@id/stockFragment"
+            app:popUpTo="@id/stockFragment"
+            app:popUpToInclusive="true" />
         <argument
             android:name="updateClick"
             app:argType="string[]" />
@@ -37,7 +40,8 @@
     <action
         android:id="@+id/action_global_manageStockFragment"
         app:destination="@id/manageStockFragment"
-        app:popUpTo="@id/stockFragment" />
+        app:popUpTo="@id/stockFragment"
+        app:popUpToInclusive="true" />
     <fragment
         android:id="@+id/settingsFragment"
         android:name="au.com.machtech.ttf_stock_check.SettingsFragment"
@@ -45,14 +49,20 @@
         tools:layout="@layout/fragment_settings" >
         <action
             android:id="@+id/action_settingsFragment_to_usersFragment"
-            app:destination="@id/usersFragment" />
+            app:destination="@id/usersFragment"
+            app:popUpTo="@id/settingsFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_settingsFragment_to_manageUsersFragment"
-            app:destination="@id/manageUsersFragment" />
+            app:destination="@id/manageUsersFragment"
+            app:popUpTo="@id/settingsFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <action
         android:id="@+id/action_global_settingsFragment2"
-        app:destination="@id/settingsFragment" />
+        app:destination="@id/settingsFragment"
+        app:popUpTo="@id/stockFragment"
+        app:popUpToInclusive="true" />
     <fragment
         android:id="@+id/usersFragment"
         android:name="au.com.machtech.ttf_stock_check.UsersFragment"
@@ -72,7 +82,9 @@
         tools:layout="@layout/fragment_manage_users">
         <action
             android:id="@+id/action_manageUsersFragment_to_usersFragment"
-            app:destination="@id/usersFragment" />
+            app:destination="@id/usersFragment"
+            app:popUpTo="@id/settingsFragment"
+            app:popUpToInclusive="true" />
         <argument
             android:name="editUser"
             app:argType="string[]" />

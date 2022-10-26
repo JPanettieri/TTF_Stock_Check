@@ -35,4 +35,10 @@
     <string name="fullName">Full Name</string>
     <string name="manageUsers">Manage Users</string>
     <string name="editDelete">Edit/Delete</string>
+    <string name="viewStock">View Current Stock</string>
+    <string name="itemCodeTv">Item Code</string>
+    <string name="itemDescriptionTv">Item Description</string>
+    <string name="itemCountTv">Item Count</string>
+    <string name="reloadBtn">Reload</string>
+    <string name="reloadDbTv">Clear Database and Load from CSV</string>
 </resources>

@@ -1,6 +1,10 @@
 package au.com.machtech.ttf_stock_check
 
-
+// (c) Copyright Skillage I.T.
+// (c) This file is Skillage I.T. software and is made available under license.
+// (c) This software is developed by: Joshua Panettieri
+// (c) Date: 15th October 2022 Time: 08:00
+// (c) File Name: TTF_Stock_Check Version: 1-0
 
 
 import android.app.AlarmManager
@@ -21,12 +25,14 @@ import android.widget.ToggleButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import au.com.machtech.ttf_stock_check.R.*
+import au.com.machtech.ttf_stock_check.database.ProductsDbHelper
 import kotlin.math.roundToInt
 import kotlin.system.exitProcess
 
 
 
 class SettingsFragment : Fragment(layout.fragment_settings) {
+    private lateinit var productsDbHelper: ProductsDbHelper
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,11 +61,11 @@ class SettingsFragment : Fragment(layout.fragment_settings) {
                 val canWriteSettings = Settings.System.canWrite(context)
                 if (canWriteSettings) {
                     // Convert screen brightness to percentage
-                    val screenBrightnessValue = progress * 255 / 100
+                    val screenBrightnessValue = ((progress.toFloat()) * 255 / 100).roundToInt()
 
                     // Set seekbar adjust screen brightness value in the text view.
                     view.findViewById<TextView>(R.id.brightnessCurrent).text =
-                        (screenBrightnessValue / 2.55).roundToInt().toString()
+                        (screenBrightnessValue.toFloat() / 2.55).roundToInt().toString()
                     // Change the screen brightness change mode to manual.
                     Settings.System.putInt(
                         context.contentResolver,
@@ -115,6 +121,24 @@ class SettingsFragment : Fragment(layout.fragment_settings) {
             requireActivity().findNavController(R.id.addUsers).navigate(action)
         }
 
+        view.findViewById<Button>(R.id.newDb).setOnClickListener {
+            val context = requireActivity().applicationContext
+            productsDbHelper = ProductsDbHelper(context)
+            val builder = AlertDialog.Builder(activity)
+            builder.setMessage("Are you sure you want to delete Database and Reload?")
+            builder.setCancelable(true)
+            builder.setPositiveButton("Yes") { dialog, _ ->
+                productsDbHelper.clearDbAndRecreate()
+                restartApp()
+                dialog.dismiss()
+            }
+            builder.setNegativeButton("No") { dialog, _ ->
+                dialog.dismiss()
+            }
+            val alert = builder.create()
+            alert.show()
+        }
+
         return view
     }
 
@@ -163,7 +187,7 @@ class SettingsFragment : Fragment(layout.fragment_settings) {
         val builder = AlertDialog.Builder(activity)
         builder.setMessage("Application will require restart, continue?")
         builder.setCancelable(true)
-        builder.setPositiveButton("Yes") { dialog, _ ->
+        builder.setPositiveButton("Yes") { _, _ ->
             changeFont(size)
             restartApp()
         }

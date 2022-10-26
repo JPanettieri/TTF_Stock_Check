@@ -9,7 +9,7 @@ A0007,Clown,5
 A0008,Puppy(crouch),3
 A0009,Puppy(stand),2
 A0010,Puppy(jump),2
-A0011,Puppy(lying),1
+A0011,Pupp(lying),1
 A0012,Cart with Blocks (50),0
 A0013,Cart with Blocks (100),5
 A0014,Cart with Blocks (200),4

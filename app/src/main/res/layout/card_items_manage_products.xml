@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardItems"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1">
+
+    <TextView
+        android:id="@+id/tvItemDescription"
+        android:layout_width="0dp"
+        android:layout_height="41sp"
+        android:layout_marginStart="8dp"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonDelete"
+        app:layout_constraintEnd_toStartOf="@+id/tbItemCount"
+        app:layout_constraintStart_toEndOf="@+id/tvItemCode"
+        tools:text="ItemDescription" />
+
+    <TextView
+        android:id="@+id/tvItemCode"
+        android:layout_width="54dp"
+        android:layout_height="23dp"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvItemDescription"
+        app:layout_constraintEnd_toStartOf="@+id/tvItemDescription"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="ItemCode" />
+
+    <Button
+        android:id="@+id/buttonDelete"
+        android:layout_width="87sp"
+        android:layout_height="50sp"
+        android:gravity="center_vertical"
+        android:text="@string/deleteButton"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tbItemCount"
+        android:layout_width="30sp"
+        android:layout_height="21sp"
+        android:layout_marginEnd="2dp"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvItemDescription"
+        app:layout_constraintEnd_toStartOf="@+id/buttonDelete"
+        tools:text="ItemCount" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
